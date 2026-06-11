@@ -20,7 +20,7 @@ public class CustomerController {
     private final CustomerService service;
 
     // create customer
-    @PostMapping
+    @PostMapping("/register")
     public CustomerResponse create(
             @Valid @RequestBody CustomerRequest request
     ) {

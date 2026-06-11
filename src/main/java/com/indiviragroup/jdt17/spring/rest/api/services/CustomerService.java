@@ -42,7 +42,7 @@ public class CustomerService {
             Customer customer
     ) {
         return new CustomerResponse(
-                customer.getId(),
+                customer.getCustomerId(),
                 customer.getName(),
                 customer.getEmail(),
                 customer.getPhone(),
