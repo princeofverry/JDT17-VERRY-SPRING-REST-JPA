@@ -3,7 +3,6 @@ package com.indiviragroup.jdt17.spring.rest.api.controllers;
 
 import com.indiviragroup.jdt17.spring.rest.api.dto.CustomerRequest;
 import com.indiviragroup.jdt17.spring.rest.api.dto.CustomerResponse;
-import com.indiviragroup.jdt17.spring.rest.api.models.Customer;
 import com.indiviragroup.jdt17.spring.rest.api.services.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +18,13 @@ public class CustomerController {
 
     private final CustomerService service;
 
+    @PostMapping("/test")
+    public String test() {
+        return "POST OK";
+    }
+
     // create customer
-    @PostMapping
+    @PostMapping("/register")
     public CustomerResponse create(
             @Valid @RequestBody CustomerRequest request
     ) {
@@ -41,7 +45,7 @@ public class CustomerController {
         return service.getById(id);
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/{id}")
     public CustomerResponse update(
             @PathVariable UUID id,
             @Valid @RequestBody CustomerRequest request
@@ -49,7 +53,7 @@ public class CustomerController {
         return service.update(id, request);
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/{id}/delete")
     public String delete(
             @PathVariable UUID id
     ) {
